@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Account-Trader | Preview</title>
+<style>
+:root{font-family:system-ui,-apple-system,Arial,sans-serif;color:#183044;background:#f4f8f8}*{box-sizing:border-box}body{margin:0}header{background:#10283b;color:white;padding:22px 6% 55px}.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}.logo{font-weight:800;font-size:1.2rem}.logo span{color:#65d6a3}.tag{font-size:.8rem;color:#b8cbd4}h1{font-size:clamp(2.1rem,7vw,3.8rem);line-height:1.12;margin:55px 0 16px;max-width:720px}header p{color:#d2e1e9;max-width:600px;font-size:1.1rem;line-height:1.6}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{background:#65d6a3;color:#10283b;border:0;border-radius:9px;padding:13px 18px;font-weight:750;text-decoration:none;cursor:pointer}.btn.secondary{background:transparent;color:white;border:1px solid #a7beca}main{max-width:1050px;margin:-24px auto 0;padding:0 16px 60px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.card{background:white;border-radius:16px;padding:25px;box-shadow:0 7px 22px #10283b12}.card h2{margin:4px 0 12px}.card p{line-height:1.55;color:#526777}.eyebrow{font-weight:800;letter-spacing:.09em;color:#247f65;font-size:.72rem;text-transform:uppercase}.section{margin-top:35px}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}label{display:block;font-weight:650;margin:15px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #bdccd1;border-radius:8px;background:white;font:inherit}textarea{min-height:95px}small{color:#667c86;line-height:1.4}.note{background:#e6f5ee;border-radius:10px;padding:14px;color:#245b49;margin-top:18px}footer{text-align:center;padding:20px;color:#607580}button:disabled{opacity:.7;cursor:not-allowed}@media(min-width:700px){header{padding-bottom:80px}}
+</style></head><body>
+<header><div class="nav"><div class="logo"><span>↔</span> Account-Trader</div><div class="tag">Connecticut launch · Preview</div></div>
+<h1>Grow your business.<br>Trade smarter.</h1><p>A local marketplace for established service accounts, route opportunities, and connections between contractors.</p>
+<div class="actions"><a class="btn" href="#contractors">Explore Accounts</a><a class="btn secondary" href="#list">List an Account</a></div></header>
+<main><div class="cards">
+<section class="card" id="contractors"><div class="eyebrow">For contractors</div><h2>Less Driving. More Earning.</h2><p>Buy, sell, or trade existing customer accounts near your current routes. Build tighter routes and potentially save time and fuel.</p><a href="#list">Create a free contractor listing →</a></section>
+<section class="card"><div class="eyebrow">For homeowners</div><h2>Need snow removal?</h2><p>Looking for a seasonal plow service or a one-time visit? A separate homeowner request section is planned for the launch.</p><span class="tag" style="color:#247f65">Coming next</span></section>
+</div>
+<section class="section card" id="list"><div class="eyebrow">Contractor marketplace</div><h2>Post a Free Listing</h2><p>Tell other local contractors what you're looking for. No customer names or exact addresses needed.</p>
+<form id="listing"><div class="formgrid">
+<div><label for="intent">What would you like to do?</label><select id="intent" required><option>Buy customer accounts</option><option>Sell customer accounts</option><option>Trade customer accounts</option><option>Open to offers</option></select></div>
+<div><label for="service">Type of service</label><select id="service"><option>Snow plowing</option><option>Landscaping / lawn care</option><option>Both</option><option>Other</option></select></div>
+<div><label for="town">Town</label><select id="town"><option>Terryville</option><option>Bristol</option><option>Southington</option><option>Plainville</option><option>Plymouth</option><option>Farmington</option><option>Wolcott</option><option>Other nearby town</option></select></div>
+<div><label for="business">Business name</label><input id="business" placeholder="Your business name"></div></div>
+<label for="details">What are you looking for?</label><textarea id="details" placeholder="Example: Interested in trading plowing accounts around Bristol to reduce driving between jobs."></textarea>
+<label for="contact">Contact email (private in a future live version)</label><input id="contact" type="email" placeholder="you@example.com">
+<div class="note"><strong>Preview only:</strong> This form does not send, save, or publish anything. Don't enter real customer information yet.</div>
+<div class="actions"><button class="btn" type="button" onclick="showPreview()">Preview my listing</button></div>
+</form><div id="result" class="note" hidden></div></section>
+</main><footer>Account-Trader · Proof of concept · Not a live marketplace</footer>
+<script>
+function showPreview(){const get=id=>document.getElementById(id).value;const d=document.getElementById('result');d.hidden=false;d.textContent='Listing preview: '+get('intent')+' · '+get('service')+' · '+get('town')+' · '+(get('business')||'Unnamed business')+' · '+(get('details')||'No description yet')+'. This is a local preview only; nothing has been submitted.';d.scrollIntoView({behavior:'smooth',block:'nearest'})}
+</script></body></html>
